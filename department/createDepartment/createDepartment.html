@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management</title>
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="./createDepartment.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!--================ SIDEBAR =================-->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <h2>HOSPITAL</h2>
+                    <span>MANAGEMENT SYSTEM</span>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="#">
+                        <i class="fa-solid fa-hospital"></i>
+                        Quản lý khoa
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        Quản lý bác sĩ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý bệnh nhân
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-bed"></i>
+                        Quản lý phòng khám
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Quản lý lịch khám
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-capsules"></i>
+                        Quản lý thuốc
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý hóa đơn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="logout">
+
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+
+            </div>
+
+        </aside>
+
+        <!--================ CONTENT =================-->
+
+        <main class="content">
+
+            <!-- Header -->
+
+            <header class="header">
+
+                <div class="left-header">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                    <h2>Thêm khoa</h2>
+
+                </div>
+
+                <div class="right-header">
+
+                    <div class="notification">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span>2</span>
+
+                    </div>
+
+                    <div class="user">
+
+                        <img src="https://i.pravatar.cc/45">
+
+                        <span>Admin</span>
+
+                        <i class="fa-solid fa-angle-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Breadcrumb -->
+
+            <div class="breadcrumb">
+
+                <a href="../Departments/index.html">Quản lý khoa</a>
+
+                <span>></span>
+
+                <span>Thêm khoa</span>
+
+            </div>
+
+            <!-- Card -->
+
+            <div class="card">
+
+                <div class="card-title">
+
+                    <h3>Thông tin khoa</h3>
+
+                </div>
+
+                <form method="post">
+
+                    <div class="form-group">
+
+                        <label>
+                            Tên khoa <span>*</span>
+                        </label>
+
+                        <div class="input-box">
+
+                            <input
+                                class="departmentName"
+                                type="text"
+                                placeholder="Nhập tên khoa">
+
+                            <small>
+                                Tên khoa là bắt buộc và phải duy nhất.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Số điện thoại <span>*</span>
+                        </label>
+
+                        <div class="input-box">
+
+                            <input
+                            class="phone"
+                                type="text"
+                                placeholder="Nhập số điện thoại">
+
+                            <small>
+                                Nhập số điện thoại liên hệ của khoa.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Mô tả</label>
+
+                        <div class="input-box">
+
+                            <textarea
+                            class="description"
+                                placeholder="Nhập mô tả chức năng của khoa"></textarea>
+
+                            <small>
+                                Mô tả chức năng và nhiệm vụ của khoa.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="button-group">
+
+                        <button class="cancel">
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                            Hủy bỏ
+
+                        </button>
+
+                        <button type="button" onclick="createDepartment()" class="save">
+
+                            <i class="fa-regular fa-floppy-disk"></i>
+
+                            Lưu
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <footer>
+
+                © 2024 Hospital Management System. All rights reserved.
+
+            </footer>
+
+        </main>
+
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
+        integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./createDepartment.js"></script>
+</body>
+
+</html>

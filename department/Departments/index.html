@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khoa</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <h2>HOSPITAL</h2>
+                    <p>MANAGEMENT SYSTEM</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+
+                <li class="active">
+                    <a href="">
+                        <i class="fa-solid fa-building"></i>
+                        Quản lý khoa
+                    </a>
+                </li>
+                <li><a href="../../doctor/doctor/doctor.html"><i class="fa-solid fa-user-doctor"></i>Quản lý bác sĩ</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-users"></i>Quản lý bệnh nhân</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-hospital"></i>Quản lý phòng khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Quản lý lịch khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-capsules"></i>Quản lý thuốc</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-file-invoice"></i>Quản lý hóa đơn</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-chart-column"></i>Thống kê</a></li>
+
+            </ul>
+
+            <div class="logout">
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- Content -->
+
+        <div class="content">
+
+            <header class="topbar">
+
+                <div class="left">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                    <h2>Quản lý khoa</h2>
+
+                </div>
+
+                <div class="right">
+
+                    <i class="fa-regular fa-bell"></i>
+
+                    <img src="https://i.pravatar.cc/45" alt="">
+
+                    <span>Admin</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </header>
+
+            <main class="container">
+
+                <div class="page-title">
+                    <h1>Danh sách khoa</h1>
+                </div>
+
+                <div class="toolbar">
+
+                    <div class="search">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" placeholder="Tìm kiếm theo tên khoa...">
+
+                    </div>
+
+                    <select>
+
+                        <option>-- Tất cả --</option>
+
+                    </select>
+
+                    <a href="../CreateDepartment/createDepartment.html">
+                        <button class="btn-primary">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Thêm khoa
+
+                    </button>
+                    </a>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>STT</th>
+
+                            <th>Tên khoa</th>
+
+                            <th>Mô tả</th>
+
+                            <th>Số điện thoại</th>
+
+                            <th>Số bác sĩ</th>
+
+                            <th>Thao tác</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="department-list">
+
+
+                    </tbody>
+
+                </table>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
+        integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

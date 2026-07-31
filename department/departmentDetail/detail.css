@@ -1,0 +1,547 @@
+/*=====================================
+    GOOGLE FONT
+======================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/*=====================================
+    RESET
+======================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f4f7fb;
+    color:#1f2937;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:none;
+    font-family:inherit;
+}
+
+input,
+select{
+    border:none;
+    outline:none;
+    font-family:inherit;
+}
+
+/*=====================================
+    LAYOUT
+======================================*/
+
+.wrapper{
+    display:flex;
+    min-height:100vh;
+}
+
+.content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+/*=====================================
+    SIDEBAR
+======================================*/
+
+.sidebar{
+    width:250px;
+    background:#0d3475;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:22px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo-icon{
+    width:46px;
+    height:46px;
+    border-radius:10px;
+    background:#fff;
+    color:#0d56d6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+.logo h2{
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.logo p{
+    font-size:12px;
+    opacity:.8;
+}
+
+.menu{
+    padding:20px 0;
+    flex:1;
+}
+
+.menu li{
+    margin:6px 12px;
+}
+
+.menu li a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 18px;
+    border-radius:10px;
+    transition:.3s;
+    font-size:15px;
+}
+
+.menu li a i{
+    width:20px;
+    text-align:center;
+}
+
+.menu li:hover a{
+    background:rgba(255,255,255,.1);
+}
+
+.menu li.active a{
+    background:#174da3;
+}
+
+.logout{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:15px;
+}
+
+.logout a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 18px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.logout a:hover{
+    background:rgba(255,255,255,.1);
+}
+
+/*=====================================
+    HEADER
+======================================*/
+
+.topbar{
+    height:78px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 30px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.topbar .left{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.topbar .left i{
+    font-size:22px;
+    color:#374151;
+    cursor:pointer;
+}
+
+.topbar .left h2{
+    font-size:20px;
+    font-weight:700;
+}
+
+.topbar .right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.topbar .right .fa-bell{
+    font-size:20px;
+    position:relative;
+    cursor:pointer;
+}
+
+.topbar .right img{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.topbar .right span{
+    font-weight:500;
+}
+
+.topbar .right .fa-chevron-down{
+    font-size:13px;
+    color:#6b7280;
+}
+
+/*=====================================
+    MAIN
+======================================*/
+
+.container{
+    padding:30px;
+}
+/*=====================================
+    BREADCRUMB
+======================================*/
+
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:25px;
+    font-size:15px;
+}
+
+.breadcrumb a{
+    color:#2563eb;
+    font-weight:500;
+}
+
+.breadcrumb span{
+    color:#6b7280;
+}
+
+/*=====================================
+    CARD
+======================================*/
+
+.card{
+    background:#fff;
+    border-radius:12px;
+    padding:28px;
+    margin-bottom:25px;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+}
+
+.card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.department-title{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.department-icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#eef5ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#2563eb;
+    font-size:42px;
+}
+
+.department-title h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.status{
+    display:inline-block;
+    padding:7px 15px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.status.active{
+    background:#e8f7ed;
+    color:#16a34a;
+}
+
+.action{
+    display:flex;
+    gap:15px;
+}
+
+.btn-edit,
+.btn-delete{
+    padding:13px 24px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-edit{
+    border:1px solid #2563eb;
+    color:#2563eb;
+}
+
+.btn-edit:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+.btn-delete{
+    border:1px solid #dc2626;
+    color:#dc2626;
+}
+
+.btn-delete:hover{
+    background:#dc2626;
+    color:#fff;
+}
+
+.card hr{
+    border:none;
+    border-top:1px solid #e5e7eb;
+    margin:25px 0;
+}
+
+.department-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px 80px;
+}
+
+.info-item{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.info-item label{
+    width:130px;
+    font-weight:600;
+    color:#374151;
+}
+
+.info-item span{
+    color:#4b5563;
+    line-height:1.7;
+}
+
+.description{
+    grid-column:2;
+}
+/*=====================================
+    TABLE
+======================================*/
+
+.table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.table-header h2{
+    font-size:24px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.table-header i{
+    color:#2563eb;
+}
+
+.doctor-count{
+    background:#f3f4f6;
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#f5f7fb;
+}
+
+th{
+    padding:18px;
+    text-align:left;
+    font-size:15px;
+}
+
+td{
+    padding:18px;
+    border-top:1px solid #eceff3;
+}
+
+tbody tr{
+    transition:.25s;
+}
+
+tbody tr:hover{
+    background:#f9fbff;
+}
+
+/*=====================================
+    BADGE
+======================================*/
+
+.badge{
+    display:inline-block;
+    padding:7px 16px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.badge.active{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.badge.inactive{
+    background:#f3f4f6;
+    color:#6b7280;
+}
+
+/*=====================================
+    TABLE FOOTER
+======================================*/
+
+.table-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:25px;
+}
+
+.pagination{
+    display:flex;
+    gap:10px;
+}
+
+.pagination button{
+    width:40px;
+    height:40px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    background:#fff;
+    transition:.3s;
+}
+
+.pagination button:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+.pagination .active{
+    background:#2563eb;
+    color:#fff;
+}
+
+/*=====================================
+    BACK BUTTON
+======================================*/
+
+.btn-back{
+    margin-top:10px;
+    border:1px solid #2563eb;
+    color:#2563eb;
+    padding:14px 25px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-back:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+/*=====================================
+    RESPONSIVE
+======================================*/
+
+@media(max-width:992px){
+
+    .department-info{
+        grid-template-columns:1fr;
+    }
+
+    .description{
+        grid-column:auto;
+    }
+
+    .card-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .table-footer{
+        flex-direction:column;
+        gap:20px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .wrapper{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    table{
+        min-width:900px;
+    }
+
+    .department-title{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý bác sĩ</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="doctor.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ================= Sidebar ================= -->
+
+           <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <h2>HOSPITAL</h2>
+                    <p>MANAGEMENT SYSTEM</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+
+                <li >
+                    <a href="../../department/Departments/index.html">
+                        <i class="fa-solid fa-building"></i>
+                        Quản lý khoa
+                    </a>
+                </li>
+                <li class="active"><a href="../../doctor/doctor/doctor.html"><i class="fa-solid fa-user-doctor"></i>Quản lý bác sĩ</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-users"></i>Quản lý bệnh nhân</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-hospital"></i>Quản lý phòng khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Quản lý lịch khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-capsules"></i>Quản lý thuốc</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-file-invoice"></i>Quản lý hóa đơn</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-chart-column"></i>Thống kê</a></li>
+
+            </ul>
+
+            <div class="logout">
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- ================= Main ================= -->
+
+        <main class="main">
+
+            <!-- Header -->
+
+            <header class="header">
+
+                <div class="header-left">
+
+                    <button class="menu-btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <h2>Quản lý bác sĩ</h2>
+
+                </div>
+
+                <div class="header-right">
+
+                    <div class="notification">
+
+                        <i class="fa-regular fa-bell"></i>
+
+                        <span>3</span>
+
+                    </div>
+
+                    <div class="profile">
+
+                        <img src="https://i.pravatar.cc/40" alt="">
+
+                        <span>Admin</span>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!-- Nội dung -->
+
+            <section class="content">
+
+                <div class="content-top">
+
+                    <h2>Danh sách bác sĩ</h2>
+
+                    <button class="add-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Thêm bác sĩ
+                    </button>
+
+                </div>
+
+                <!-- Filter -->
+
+                <div class="filter">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            placeholder="Tìm kiếm theo họ tên, chuyên khoa, SĐT, email...">
+
+                    </div>
+
+                    <select>
+
+                        <option>Khoa</option>
+                        <option>Nội tổng quát</option>
+                        <option>Tim mạch</option>
+                        <option>Nhi khoa</option>
+
+                    </select>
+
+                    <select>
+
+                        <option>Trạng thái</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+
+                    </select>
+
+                    <button class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Tìm kiếm
+                    </button>
+
+                </div>
+
+                <!-- Table -->
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Chuyên khoa</th>
+                                <th>Khoa</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody class="all-doctors">
+
+                            <!-- <tr>
+
+                                <td>1</td>
+                                <td>Nguyễn Văn Hùng</td>
+                                <td>Nội tổng quát</td>
+                                <td>Nội tổng quát</td>
+                                <td>0901 234 567</td>
+                                <td>hungnv@gmail.com</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button class="view">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+
+                                    <button class="edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+
+                                    <button class="delete">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>2</td>
+                                <td>Trần Thị Lan</td>
+                                <td>Tim mạch</td>
+                                <td>Tim mạch</td>
+                                <td>0902 345 678</td>
+                                <td>lannt@gmail.com</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button class="view">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+
+                                    <button class="edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+
+                                    <button class="delete">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>3</td>
+                                <td>Lê Minh Đức</td>
+                                <td>Nhi khoa</td>
+                                <td>Nhi khoa</td>
+                                <td>0903 456 789</td>
+                                <td>duclm@gmail.com</td>
+
+                                <td>
+                                    <span class="status inactive">
+                                        Inactive
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button class="view">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+
+                                    <button class="edit">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+
+                                    <button class="delete">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+
+                                </td>
+
+                            </tr> -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
+        integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./main.js"></script>
+    <script src="./doctor.js"></script>
+</body>
+</html>
