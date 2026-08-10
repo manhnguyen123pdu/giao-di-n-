@@ -37,7 +37,7 @@ ul{
 
 .container{
     display:flex;
-    min-height:100vh;
+    height:100vh;
 }
 
 
@@ -138,12 +138,12 @@ ul{
 /* ===========================
    CONTENT
 =========================== */
-
+/* 
 .content{
     flex:1;
     display:flex;
     flex-direction:column;
-}
+} */
 
 /* ===========================
    HEADER
@@ -197,7 +197,6 @@ ul{
 ===============================*/
 
 .main{
-
     flex:1;
     display:flex;
     flex-direction:column;
@@ -318,11 +317,14 @@ ul{
 
     font-size:13px;
     color:#666;
-}/*==============================
+}
+/*==============================
     CONTENT
 ===============================*/
 
 .content{
+    height: 95vh;
+    overflow: scroll;
     padding:30px;
     flex:1;
 }

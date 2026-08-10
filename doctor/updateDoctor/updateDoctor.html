@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa bác sĩ - Hospital Management System</title>
+
+    <!-- Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="./updateDoctor.css">
+</head>
+
+<body>
+
+<div class="app">
+
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <h2>HOSPITAL</h2>
+                    <p>MANAGEMENT SYSTEM</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+
+                <li >
+                    <a href="../../department/Departments/index.html">
+                        <i class="fa-solid fa-building"></i>
+                        Quản lý khoa
+                    </a>
+                </li>
+                <li class="active"><a href="../../doctor/doctor/doctor.html"><i class="fa-solid fa-user-doctor"></i>Quản lý bác sĩ</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-users"></i>Quản lý bệnh nhân</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-hospital"></i>Quản lý phòng khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Quản lý lịch khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-capsules"></i>Quản lý thuốc</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-file-invoice"></i>Quản lý hóa đơn</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-chart-column"></i>Thống kê</a></li>
+
+            </ul>
+
+            <div class="logout">
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+            </div>
+
+        </aside>
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <button class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <h1>Sửa bác sĩ</h1>
+
+            <div class="header-right">
+
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>3</span>
+                </div>
+
+                <div class="avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <span class="admin-name">Admin</span>
+
+                <i class="fa-solid fa-chevron-down admin-arrow"></i>
+
+            </div>
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
+
+                <a href="#">Quản lý bác sĩ</a>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <a href="#">Danh sách bác sĩ</a>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <span>Sửa bác sĩ</span>
+
+            </div>
+
+
+            <!-- FORM CARD -->
+            <div class="form-card">
+
+                <!-- CARD HEADER -->
+                <div class="card-header">
+
+                    <div class="card-title">
+                        <div class="doctor-add-icon">
+                            <i class="fa-solid fa-user-plus"></i>
+                        </div>
+
+                        <h2>Thông tin bác sĩ</h2>
+                    </div>
+
+                </div>
+
+
+                <!-- FORM -->
+                <form>
+
+                    <div class="form-body">
+
+                        <!-- HỌ TÊN -->
+                        <div class="form-group">
+
+                            <label>
+                                Họ và tên
+                                <span>*</span>
+                            </label>
+
+                            <div class="input-wrapper">
+                                <input
+                                required
+                                class="fullName"
+                                    type="text"
+                                    placeholder="Nhập họ và tên"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <!-- CHUYÊN KHOA -->
+                        <div class="form-group">
+
+                            <label>
+                                Chuyên khoa
+                                <span>*</span>
+                            </label>
+
+                            <input
+                              required
+                            class="specialization"
+                                type="text"
+                                placeholder="Nhập chuyên khoa (Ví dụ: Tim mạch, Nhi, Nội...)"
+                            >
+
+                        </div>
+
+
+                        <!-- PHONE -->
+                        <div class="form-group">
+
+                            <label>
+                                Số điện thoại
+                            </label>
+
+                            <input
+                              required
+                            class="phone"
+                            name="phone"
+                                type="text"
+                                placeholder="Nhập số điện thoại"
+                            >
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+                        <div class="form-group">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                              required
+                            class="email"
+                                type="email"
+                                placeholder="Nhập email"
+                            >
+
+                        </div>
+
+
+                        <!-- KHOA -->
+                        <div class="form-group">
+
+                            <label>
+                                Khoa
+                                <span>*</span>
+                            </label>
+
+                            <div class="select-wrapper">
+
+                                <select   required class="option departmentId">
+                                
+
+                                   
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STATUS -->
+                        <div class="form-group status-group">
+
+                            <label>Trạng thái</label>
+
+                            <div class="radio-group">
+
+                                <label class="radio-item">
+
+                                    <input
+                                    
+                                        type="radio"
+                                        name="status"
+                                        value="Active"
+                                        checked
+                                    >
+
+                                    <span class="custom-radio"></span>
+
+                                    <span>Active</span>
+
+                                </label>
+
+
+                                <label class="radio-item">
+
+                                    <input
+                                        type="radio"
+                                        name="status"
+                                        value="Inactive"
+                                    >
+
+                                    <span class="custom-radio"></span>
+
+                                    <span>Inactive</span>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FOOTER -->
+                    <div class="form-footer">
+
+                        <button
+                            type="button"
+                            class="btn btn-cancel"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                            Hủy
+                        </button>
+
+
+                        <button
+                        onclick="updateDoctor()"
+                            type="submit"
+                            class="btn btn-save"
+                        >
+                            <i class="fa-regular fa-floppy-disk"></i>
+                            Lưu
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
+        integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./updateDoctor.js"></script>
+</body>
+</html>
