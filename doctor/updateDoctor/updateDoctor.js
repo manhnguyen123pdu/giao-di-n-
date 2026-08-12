@@ -8,9 +8,7 @@ let fetchDoctorDetail = async () => {
     document.querySelector(".specialization").value = res.data.specialization;
     document.querySelector(".phone").value = res.data.phoneNumber;
     document.querySelector(".email").value = res.data.email;
-
-    console.log(res.data)
-    // let demo = document.querySelector(`.op${id}`).selected = true;  chuaw xong 
+    let demo = document.querySelector(`.op${res.data.departmentId}`).selected = true; 
 }
 
 let renderDepartment = async () => {
@@ -36,7 +34,7 @@ let updateDoctor = async () => {
     let status = document.querySelector('input[name="status"]:checked').value;
     let departmentId = document.querySelector(".departmentId").value;
     let data = {
-        departmentId,
+        departmentId: Number(departmentId),
         fullName,
         specialization,
         phone,
@@ -44,8 +42,9 @@ let updateDoctor = async () => {
         status
     }
     try {
-        alert("thêm bác sĩ thành công ")
-        await axios.post("http://localhost:8080/api/doctors", data);
+        alert("sửa bác sĩ thành công ")
+        await axios.put(`http://localhost:8080/api/doctors/${id}`, data);
+        window.location.href = '../doctor/doctor.html'
 
     } catch (error) {
         alert("thêm tất bại")
@@ -53,6 +52,5 @@ let updateDoctor = async () => {
     }
 
 }
-
 // gọi hàm 
 renderDepartment();

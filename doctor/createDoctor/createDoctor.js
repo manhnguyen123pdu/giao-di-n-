@@ -31,9 +31,9 @@ let createDoctor = async () => {
         status
     }
     try {
-            alert("thêm bác sĩ thành công ")
+        alert("thêm bác sĩ thành công ")
         await axios.post("http://localhost:8080/api/doctors", data);
-    
+        window.location.href = '../doctor/doctor.html'
     } catch (error) {
         alert("thêm tất bại")
 

@@ -23,7 +23,6 @@ let updateDoctor =(id) =>{
 let renderDoctors = (data) => {
     let doctorsHTML = "";
     for (let i = 0; i < data.length; i++) {
-        console.log( data[i].status)
         let statusClass = data[i].status.toLowerCase() =="active" ? "active" : "inactive"
         doctorsHTML += `
                      <tr>

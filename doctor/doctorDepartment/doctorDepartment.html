@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết khoa - Hospital Management</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+    <link rel="stylesheet" href="./doctorpartment.css">
+  
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <div class="logo-text">
+                <strong>HOSPITAL</strong>
+                <span>MANAGEMENT SYSTEM</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="menu-item active">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Quản lý khoa</span>
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Quản lý bác sĩ</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Quản lý bệnh nhân</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-regular fa-square-plus"></i>
+                <span>Quản lý phòng khám</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-regular fa-calendar-check"></i>
+                <span>Quản lý lịch khám</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-pills"></i>
+                <span>Quản lý thuốc</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-file-invoice"></i>
+                <span>Quản lý hóa đơn</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Thống kê</span>
+            </a>
+
+            <div class="menu-divider"></div>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Cài đặt</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Đăng xuất</span>
+            </a>
+
+        </nav>
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="header-left">
+                <div class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="page-title">
+                    Chi tiết khoa
+                </div>
+            </div>
+
+            <div class="header-right">
+
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge">2</span>
+                </div>
+
+                <div class="user">
+                    <div class="avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <span class="username">Admin</span>
+
+                    <i class="fa-solid fa-chevron-down user-arrow"></i>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
+
+                <span>Quản lý khoa</span>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <span>Danh sách khoa</span>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <span>Chi tiết khoa</span>
+
+            </div>
+
+
+            <!-- ================= DEPARTMENT ================= -->
+            <div class="card department-card">
+
+                <div class="department-header">
+
+                    <div class="department-title">
+
+                        <div class="department-icon">
+                            <i class="fa-solid fa-hospital"></i>
+                        </div>
+
+                        <div class="department-name">
+
+                            <h1>Nội tổng quát</h1>
+
+                            <span class="status">
+                                Đang hoạt động
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="actions">
+
+                        <button class="btn btn-edit">
+                            <i class="fa-solid fa-pen"></i>
+                            Sửa
+                        </button>
+
+                        <button class="btn btn-delete">
+                            <i class="fa-regular fa-trash-can"></i>
+                            Xóa
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="department-details">
+
+                    <div class="detail-left">
+
+                        <div class="detail-row">
+                            <div class="detail-label">Mã khoa:</div>
+                            <div class="detail-value">1</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Tên khoa:</div>
+                            <div class="detail-value">Nội tổng quát</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Số điện thoại:</div>
+                            <div class="detail-value">(028) 38 123 456</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="description">
+
+                        <div class="detail-label">
+                            Mô tả:
+                        </div>
+
+                        <div class="detail-value">
+                            Khám và điều trị các bệnh lý nội khoa
+                            thông thường.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DOCTORS ================= -->
+            <div class="card doctor-card">
+
+                <div class="doctor-header">
+
+                    <div class="doctor-title">
+
+                        <div class="doctor-title-icon">
+                            <i class="fa-regular fa-clipboard"></i>
+                        </div>
+
+                        <h2>
+                            Danh sách bác sĩ thuộc khoa
+                        </h2>
+
+                    </div>
+
+                    <div class="total">
+                        Tổng số: 12 bác sĩ
+                    </div>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ và tên</th>
+                                <th>Chuyên khoa</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td class="doctor-name">
+                                    BS. Nguyễn Văn Hùng
+                                </td>
+                                <td>Nội tổng quát</td>
+                                <td>0901 234 567</td>
+                                <td>hungnv@hospital.vn</td>
+                                <td>
+                                    <span class="doctor-status active">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td class="doctor-name">
+                                    BS. Trần Thị Lan
+                                </td>
+                                <td>Nội tổng quát</td>
+                                <td>0902 345 678</td>
+                                <td>lannt@hospital.vn</td>
+                                <td>
+                                    <span class="doctor-status active">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td class="doctor-name">
+                                    BS. Lê Minh Đức
+                                </td>
+                                <td>Nội tổng quát</td>
+                                <td>0903 456 789</td>
+                                <td>duclm@hospital.vn</td>
+                                <td>
+                                    <span class="doctor-status active">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td class="doctor-name">
+                                    BS. Phạm Thị Hoa
+                                </td>
+                                <td>Nội tổng quát</td>
+                                <td>0904 567 890</td>
+                                <td>hoapt@hospital.vn</td>
+                                <td>
+                                    <span class="doctor-status active">
+                                        Active
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td class="doctor-name">
+                                    BS. Hoàng Văn Nam
+                                </td>
+                                <td>Nội tổng quát</td>
+                                <td>0905 678 901</td>
+                                <td>namhv@hospital.vn</td>
+                                <td>
+                                    <span class="doctor-status inactive">
+                                        Inactive
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- FOOTER -->
+                <div class="table-footer">
+
+                    <div class="showing">
+                        Hiển thị 1 - 5 của 12 bác sĩ
+                    </div>
+
+                    <div class="pagination">
+
+                        <button class="page arrow">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <button class="page active">
+                            1
+                        </button>
+
+                        <button class="page">
+                            2
+                        </button>
+
+                        <button class="page">
+                            3
+                        </button>
+
+                        <button class="page arrow">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BACK -->
+            <div class="back-wrapper">
+
+                <button class="back-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Quay lại danh sách
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>

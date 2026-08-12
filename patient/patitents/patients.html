@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hospital Management System</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="./patients.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <h2>HOSPITAL</h2>
+                    <p>MANAGEMENT SYSTEM</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+
+                <li>
+                    <a href="../../department/Departments/index.html">
+                        <i class="fa-solid fa-building"></i>
+                        Quản lý khoa
+                    </a>
+                </li>
+                <li><a href="../../doctor/doctor/doctor.html"><i class="fa-solid fa-user-doctor"></i>Quản lý bác sĩ</a>
+                </li>
+
+                <li class="active"><a href="#"><i class="fa-solid fa-users"></i>Quản lý bệnh nhân</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-hospital"></i>Quản lý phòng khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Quản lý lịch khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-capsules"></i>Quản lý thuốc</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-file-invoice"></i>Quản lý hóa đơn</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-chart-column"></i>Thống kê</a></li>
+
+            </ul>
+
+            <div class="logout">
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- ================= MAIN ================= -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="header">
+
+                <div class="header-left">
+
+                    <button class="sidebar-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <h1>Quản lý bệnh nhân</h1>
+
+                </div>
+
+
+                <div class="header-right">
+
+                    <div class="notification">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>3</span>
+                    </div>
+
+                    <div class="admin">
+
+                        <div class="avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <span>Admin</span>
+
+                        <i class="fa-solid fa-chevron-down admin-arrow"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- BREADCRUMB -->
+                <div class="breadcrumb">
+
+                    <span>Trang chủ</span>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <span>Quản lý bệnh nhân</span>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <strong>Danh sách bệnh nhân</strong>
+
+                </div>
+
+
+                <!-- TITLE -->
+                <div class="page-title">
+
+                    <h2>Danh sách bệnh nhân</h2>
+
+                    <button class="add-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Thêm bệnh nhân
+                    </button>
+
+                </div>
+
+
+                <!-- SEARCH BOX -->
+                <div class="search-card">
+
+                    <div class="search-input">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" placeholder="Tìm kiếm theo họ tên, số điện thoại hoặc email">
+
+                    </div>
+
+                    <button class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        Tìm kiếm
+                    </button>
+
+                    <button class="refresh-btn">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        Làm mới
+                    </button>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="table-card">
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+
+                                    <th class="stt">STT</th>
+
+                                    <th>Họ tên</th>
+
+                                    <th>Ngày sinh</th>
+
+                                    <th>Giới tính</th>
+
+                                    <th>Số điện thoại</th>
+
+                                    <th>Email</th>
+
+                                    <th>Địa chỉ</th>
+
+                                    <th>Ngày đăng ký</th>
+
+                                    <th class="action-header">Thao tác</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody class="all-patients">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
+        integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./patients.js"></script>
+</body>
+
+</html>

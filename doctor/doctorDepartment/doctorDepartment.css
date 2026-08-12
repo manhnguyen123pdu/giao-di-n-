@@ -1,0 +1,742 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6fb;
+            color: #172033;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           LAYOUT
+        ========================= */
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            width: 250px;
+            min-width: 250px;
+            background: linear-gradient(180deg, #0d2d5c 0%, #092752 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .logo {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: white;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1673d1;
+            font-size: 25px;
+        }
+
+        .logo-text {
+            line-height: 1.1;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 17px;
+            letter-spacing: .5px;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            letter-spacing: 1px;
+            opacity: .9;
+        }
+
+        .menu {
+            padding: 25px 12px;
+        }
+
+        .menu-item {
+            height: 48px;
+            padding: 0 14px;
+            margin-bottom: 7px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #f2f6ff;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 15px;
+            transition: .2s;
+        }
+
+        .menu-item i {
+            width: 22px;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .menu-item:hover {
+            background: rgba(255,255,255,.08);
+        }
+
+        .menu-item.active {
+            background: linear-gradient(
+                90deg,
+                rgba(65,143,229,.65),
+                rgba(45,112,190,.55)
+            );
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+        }
+
+        .menu-item .arrow {
+            margin-left: auto;
+            font-size: 12px;
+        }
+
+        .menu-divider {
+            height: 1px;
+            background: rgba(255,255,255,.12);
+            margin: 18px 8px;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            height: 76px;
+            background: white;
+            border-bottom: 1px solid #e5e8ef;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .hamburger {
+            font-size: 20px;
+            color: #536071;
+            cursor: pointer;
+        }
+
+        .page-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .notification {
+            position: relative;
+            color: #26354b;
+            font-size: 21px;
+        }
+
+        .notification .badge {
+            position: absolute;
+            top: -9px;
+            right: -9px;
+            background: #e4233d;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #edf1f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #66758a;
+            font-size: 21px;
+        }
+
+        .username {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .user-arrow {
+            margin-left: 5px;
+            color: #556275;
+            font-size: 12px;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            padding: 25px 30px 35px;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        /* Breadcrumb */
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 25px 2px;
+            color: #1b579a;
+            font-size: 15px;
+        }
+
+        .breadcrumb span:last-child {
+            color: #535b68;
+        }
+
+        .breadcrumb i {
+            color: #8993a3;
+            font-size: 11px;
+        }
+
+        /* =========================
+           CARD
+        ========================= */
+
+        .card {
+            background: white;
+            border-radius: 9px;
+            border: 1px solid #e3e7ed;
+            box-shadow: 0 2px 8px rgba(20, 40, 80, .04);
+        }
+
+        /* Department info */
+
+        .department-card {
+            padding: 18px 28px 30px;
+            margin-bottom: 22px;
+        }
+
+        .department-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e0e3e8;
+        }
+
+        .department-title {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .department-icon {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: #eef5ff;
+            color: #0874dc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+        }
+
+        .department-name {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .department-name h1 {
+            font-size: 27px;
+            color: #101828;
+        }
+
+        .status {
+            padding: 7px 12px;
+            background: #edf5ff;
+            color: #1769b2;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            height: 45px;
+            padding: 0 22px;
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .btn-edit {
+            color: #14599d;
+            border: 1px solid #286bb1;
+        }
+
+        .btn-delete {
+            color: #c92836;
+            border: 1px solid #c92836;
+        }
+
+        .btn:hover {
+            opacity: .85;
+        }
+
+        /* Department details */
+
+        .department-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 25px 15px 0;
+            gap: 30px;
+        }
+
+        .detail-left {
+            display: grid;
+            grid-template-columns: 195px 1fr;
+            row-gap: 12px;
+        }
+
+        .detail-row {
+            display: contents;
+        }
+
+        .detail-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #141a23;
+        }
+
+        .detail-value {
+            font-size: 16px;
+            color: #252b35;
+        }
+
+        .description {
+            display: grid;
+            grid-template-columns: 145px 1fr;
+        }
+
+        .description .detail-value {
+            line-height: 1.45;
+        }
+
+        /* =========================
+           DOCTOR CARD
+        ========================= */
+
+        .doctor-card {
+            padding: 24px 28px 22px;
+        }
+
+        .doctor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .doctor-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .doctor-title-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: #eaf3ff;
+            color: #1672d2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 17px;
+        }
+
+        .doctor-title h2 {
+            font-size: 21px;
+            color: #111827;
+        }
+
+        .total {
+            background: #f3f6fb;
+            padding: 9px 14px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #364152;
+        }
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid #dfe4eb;
+            border-radius: 7px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background: #f1f4fa;
+        }
+
+        th {
+            height: 54px;
+            text-align: left;
+            padding: 0 15px;
+            font-size: 15px;
+            font-weight: 700;
+            color: #18202c;
+            border-bottom: 1px solid #dce1e8;
+        }
+
+        td {
+            height: 50px;
+            padding: 0 15px;
+            font-size: 15px;
+            color: #1e2734;
+            border-bottom: 1px solid #e0e4ea;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #fafcff;
+        }
+
+        th:first-child,
+        td:first-child {
+            width: 100px;
+            text-align: center;
+        }
+
+        th:nth-child(2) {
+            width: 260px;
+        }
+
+        th:nth-child(3) {
+            width: 230px;
+        }
+
+        th:nth-child(4) {
+            width: 210px;
+        }
+
+        th:nth-child(5) {
+            width: 260px;
+        }
+
+        th:last-child {
+            width: 130px;
+        }
+
+        .doctor-name {
+            font-weight: 500;
+        }
+
+        /* Status */
+
+        .doctor-status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .active {
+            color: #25863e;
+            background: #dff7e5;
+        }
+
+        .inactive {
+            color: #48515d;
+            background: #eef1f5;
+        }
+
+        /* =========================
+           PAGINATION
+        ========================= */
+
+        .table-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 13px;
+        }
+
+        .showing {
+            color: #626c7b;
+            font-size: 15px;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+
+        .page {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #d4d9e1;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: #263241;
+            font-size: 15px;
+        }
+
+        .page:hover {
+            background: #f1f5fb;
+        }
+
+        .page.active {
+            color: white;
+            background: #0867d4;
+            border-color: #0867d4;
+        }
+
+        .page.arrow {
+            color: #6c7786;
+        }
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-wrapper {
+            margin-top: 21px;
+        }
+
+        .back-btn {
+            height: 45px;
+            padding: 0 22px;
+            border: 1px solid #1769b0;
+            background: white;
+            border-radius: 6px;
+            color: #155b9e;
+            font-size: 15px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn:hover {
+            background: #f1f7ff;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1100px) {
+            .sidebar {
+                width: 220px;
+                min-width: 220px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .department-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .sidebar {
+                width: 70px;
+                min-width: 70px;
+            }
+
+            .logo {
+                justify-content: center;
+                padding: 0;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .menu {
+                padding: 20px 10px;
+            }
+
+            .menu-item {
+                justify-content: center;
+                padding: 0;
+            }
+
+            .menu-item span,
+            .menu-item .arrow {
+                display: none;
+            }
+
+            .menu-item i {
+                font-size: 19px;
+            }
+
+            .department-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .actions {
+                width: 100%;
+            }
+
+            .btn {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 0 15px;
+            }
+
+            .header-left {
+                gap: 15px;
+            }
+
+            .username,
+            .user-arrow {
+                display: none;
+            }
+
+            .content {
+                padding: 15px;
+            }
+
+            .breadcrumb {
+                font-size: 13px;
+            }
+
+            .department-card,
+            .doctor-card {
+                padding: 18px;
+            }
+
+            .department-title {
+                gap: 12px;
+            }
+
+            .department-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+
+            .department-name {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+
+            .department-name h1 {
+                font-size: 22px;
+            }
+
+            .detail-left {
+                grid-template-columns: 130px 1fr;
+            }
+
+            .description {
+                grid-template-columns: 130px 1fr;
+            }
+
+            .doctor-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .table-footer {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 15px;
+            }
+        }

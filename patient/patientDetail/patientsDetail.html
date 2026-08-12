@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f7f9fc;
+            color: #172033;
+            font-size: 14px;
+        }
+
+        /* =========================
+           LAYOUT
+        ========================= */
+
+        .app {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            width: 240px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #082d5d 0%, #092b58 100%);
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            height: 95px;
+            display: flex;
+            align-items: center;
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .logo-icon {
+            width: 47px;
+            height: 47px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 11px;
+        }
+
+        .logo-icon i {
+            color: #0866dc;
+            font-size: 32px;
+        }
+
+        .logo-text {
+            line-height: 1.2;
+        }
+
+        .logo-text strong {
+            display: block;
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: -.5px;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            font-weight: 500;
+            opacity: .9;
+            letter-spacing: .2px;
+        }
+
+        .menu {
+            padding: 24px 10px;
+        }
+
+        .menu-item {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            color: rgba(255,255,255,.9);
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .menu-item:hover {
+            background: rgba(255,255,255,.09);
+        }
+
+        .menu-item.active {
+            background: #0869ed;
+            box-shadow: 0 4px 12px rgba(0, 102, 255, .25);
+        }
+
+        .menu-item i {
+            width: 28px;
+            font-size: 20px;
+            margin-right: 12px;
+            text-align: center;
+        }
+
+        .menu-item span {
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .menu-item .arrow {
+            margin-left: auto;
+            font-size: 13px;
+            width: auto;
+        }
+
+        .menu-bottom {
+            position: absolute;
+            bottom: 18px;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .menu-bottom .menu-item {
+            margin-bottom: 3px;
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            min-height: 100vh;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            height: 95px;
+            background: white;
+            border-bottom: 1px solid #e6e9ef;
+            display: flex;
+            align-items: center;
+            padding: 0 28px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 38px;
+        }
+
+        .hamburger {
+            font-size: 23px;
+            color: #536174;
+            cursor: pointer;
+        }
+
+        .page-title {
+            font-size: 21px;
+            font-weight: 700;
+            color: #111b33;
+        }
+
+        .header-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 27px;
+        }
+
+        .notification {
+            position: relative;
+            color: #435169;
+            font-size: 21px;
+            cursor: pointer;
+        }
+
+        .notification .badge {
+            position: absolute;
+            top: -7px;
+            right: -7px;
+            background: #e53935;
+            color: white;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .user-avatar {
+            width: 44px;
+            height: 44px;
+            background: #eef2f8;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #59677d;
+            font-size: 21px;
+        }
+
+        .user-name {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .user > i {
+            color: #647086;
+            font-size: 12px;
+            margin-left: 2px;
+        }
+
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content {
+            padding: 27px 28px 40px;
+        }
+
+        /* Breadcrumb */
+
+        .top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 17px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #657184;
+            font-size: 14px;
+        }
+
+        .breadcrumb i {
+            font-size: 11px;
+            color: #98a1b0;
+        }
+
+        .breadcrumb .current {
+            color: #0866d9;
+            font-weight: 600;
+        }
+
+        .back-btn {
+            height: 43px;
+            padding: 0 18px;
+            background: white;
+            border: 1px solid #dce1e8;
+            border-radius: 5px;
+            color: #465267;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .back-btn i {
+            margin-right: 8px;
+        }
+
+        .back-btn:hover {
+            border-color: #0b67df;
+            color: #0b67df;
+        }
+
+
+        /* =========================
+           GRID
+        ========================= */
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 340px minmax(0, 1fr);
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e5e8ed;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.03);
+        }
+
+
+        /* =========================
+           PATIENT INFO
+        ========================= */
+
+        .patient-card {
+            padding: 27px 23px 22px;
+        }
+
+        .card-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #101a31;
+            margin-bottom: 22px;
+        }
+
+        .info-list {
+            border-top: 1px solid #edf0f4;
+        }
+
+        .info-row {
+            min-height: 65px;
+            border-bottom: 1px solid #edf0f4;
+            display: grid;
+            grid-template-columns: 135px 1fr;
+            align-items: center;
+        }
+
+        .info-label {
+            font-weight: 500;
+            color: #182033;
+        }
+
+        .info-value {
+            color: #252c39;
+            line-height: 1.5;
+        }
+
+        .address {
+            padding: 15px 0;
+            min-height: 77px;
+            align-items: start;
+        }
+
+        .patient-actions {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            height: 43px;
+            border-radius: 5px;
+            padding: 0 16px;
+            background: white;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .btn i {
+            margin-right: 7px;
+        }
+
+        .btn-update {
+            color: #0566d8;
+            border: 1px solid #9bbde7;
+        }
+
+        .btn-update:hover {
+            background: #f0f7ff;
+        }
+
+        .btn-delete {
+            color: #e53935;
+            border: 1px solid #e7a6a4;
+            flex: 1;
+        }
+
+        .btn-delete:hover {
+            background: #fff5f5;
+        }
+
+
+        /* =========================
+           APPOINTMENT CARD
+        ========================= */
+
+        .appointment-card {
+            overflow: hidden;
+            min-width: 0;
+        }
+
+        .appointment-header {
+            height: 88px;
+            padding: 0 22px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e8ebef;
+        }
+
+        .appointment-header h2 {
+            font-size: 19px;
+            color: #101a31;
+        }
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        thead {
+            background: #fafbfc;
+        }
+
+        th {
+            height: 54px;
+            padding: 0 10px;
+            border-bottom: 1px solid #dfe3e8;
+            color: #192134;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        td {
+            height: 100px;
+            padding: 15px 10px;
+            border-bottom: 1px solid #e5e8ed;
+            color: #252d3b;
+            font-size: 12px;
+            line-height: 1.55;
+            vertical-align: middle;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: #fbfcfe;
+        }
+
+        th:first-child,
+        td:first-child {
+            padding-left: 22px;
+        }
+
+        /* Column widths */
+
+        th:nth-child(1) { width: 5%; }
+        th:nth-child(2) { width: 11%; }
+        th:nth-child(3) { width: 9%; }
+        th:nth-child(4) { width: 16%; }
+        th:nth-child(5) { width: 12%; }
+        th:nth-child(6) { width: 14%; }
+        th:nth-child(7) { width: 14%; }
+        th:nth-child(8) { width: 11%; }
+
+        .doctor-name {
+            font-weight: 500;
+        }
+
+        .sub-text {
+            display: block;
+            margin-top: 2px;
+        }
+
+        .room {
+            font-weight: 500;
+        }
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 9px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .completed {
+            background: #e3f5e9;
+            color: #249148;
+        }
+
+        .scheduled {
+            background: #e5efff;
+            color: #1764bd;
+        }
+
+        .cancelled {
+            background: #ffe5e5;
+            color: #d83b3b;
+        }
+
+
+        /* =========================
+           FOOTER / PAGINATION
+        ========================= */
+
+        .table-footer {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 22px;
+        }
+
+        .showing {
+            color: #697386;
+            font-size: 13px;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 11px;
+            align-items: center;
+        }
+
+        .page-btn {
+            width: 37px;
+            height: 37px;
+            border: 1px solid #e1e5eb;
+            background: white;
+            color: #768195;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .page-btn:hover {
+            border-color: #0969df;
+            color: #0969df;
+        }
+
+        .page-btn.active {
+            background: #0869e9;
+            border-color: #0869e9;
+            color: white;
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1200px) {
+            .sidebar {
+                width: 215px;
+            }
+
+            .main {
+                margin-left: 215px;
+                width: calc(100% - 215px);
+            }
+
+            .detail-grid {
+                grid-template-columns: 310px minmax(0, 1fr);
+            }
+
+            .info-row {
+                grid-template-columns: 120px 1fr;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .sidebar {
+                width: 70px;
+            }
+
+            .logo {
+                justify-content: center;
+                padding: 0;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .logo-icon {
+                margin: 0;
+            }
+
+            .menu-item {
+                justify-content: center;
+                padding: 0;
+            }
+
+            .menu-item i {
+                margin: 0;
+            }
+
+            .menu-item span,
+            .menu-item .arrow {
+                display: none;
+            }
+
+            .main {
+                margin-left: 70px;
+                width: calc(100% - 70px);
+            }
+
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .patient-card {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .header {
+                padding: 0 15px;
+            }
+
+            .header-left {
+                gap: 15px;
+            }
+
+            .page-title {
+                font-size: 17px;
+            }
+
+            .user-name,
+            .user > i {
+                display: none;
+            }
+
+            .content {
+                padding: 18px 12px;
+            }
+
+            .top-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .breadcrumb {
+                flex-wrap: wrap;
+            }
+
+            .back-btn {
+                width: 100%;
+            }
+
+            .patient-actions {
+                flex-direction: column;
+            }
+
+            .btn-delete {
+                flex: none;
+            }
+
+            .appointment-header {
+                height: 70px;
+            }
+
+            table {
+                min-width: 950px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+
+            <div class="logo-text">
+                <strong>HOSPITAL</strong>
+                <span>MANAGEMENT SYSTEM</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <div class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-building"></i>
+                <span>Quản lý khoa</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span>Quản lý bác sĩ</span>
+            </div>
+
+            <div class="menu-item active">
+                <i class="fa-solid fa-users"></i>
+                <span>Quản lý bệnh nhân</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-house-medical"></i>
+                <span>Quản lý phòng khám</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span>Quản lý lịch khám</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-stethoscope"></i>
+                <span>Quản lý bệnh</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-pills"></i>
+                <span>Quản lý thuốc</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Quản lý hóa đơn</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-chart-simple"></i>
+                <span>Thống kê</span>
+                <i class="fa-solid fa-chevron-down arrow"></i>
+            </div>
+
+        </nav>
+
+        <div class="menu-bottom">
+
+            <div class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Cài đặt</span>
+            </div>
+
+            <div class="menu-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Đăng xuất</span>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="header-left">
+
+                <div class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <h1 class="page-title">
+                    Quản lý bệnh nhân
+                </h1>
+
+            </div>
+
+            <div class="header-right">
+
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+
+                <div class="user">
+
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <span class="user-name">Admin</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="content">
+
+            <!-- TOP -->
+            <div class="top-row">
+
+                <div class="breadcrumb">
+
+                    <span>Trang chủ</span>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <span>Quản lý bệnh nhân</span>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <span>Danh sách bệnh nhân</span>
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <span class="current">
+                        Chi tiết bệnh nhân
+                    </span>
+
+                </div>
+
+                <button class="back-btn">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Quay lại danh sách
+                </button>
+
+            </div>
+
+
+            <!-- GRID -->
+            <div class="detail-grid">
+
+                <!-- ================= PATIENT ================= -->
+                <div class="card patient-card">
+
+                    <h2 class="card-title">
+                        Thông tin bệnh nhân
+                    </h2>
+
+                    <div class="info-list">
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Mã bệnh nhân
+                            </span>
+
+                            <span class="info-value">
+                                1
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Họ và tên
+                            </span>
+
+                            <span class="info-value">
+                                Nguyễn Văn An
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Ngày sinh
+                            </span>
+
+                            <span class="info-value">
+                                15/05/1998
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Giới tính
+                            </span>
+
+                            <span class="info-value">
+                                Male
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Số điện thoại
+                            </span>
+
+                            <span class="info-value">
+                                0901 234 567
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Email
+                            </span>
+
+                            <span class="info-value">
+                                an@gmail.com
+                            </span>
+                        </div>
+
+                        <div class="info-row address">
+                            <span class="info-label">
+                                Địa chỉ
+                            </span>
+
+                            <span class="info-value">
+                                123 Đường Lê Lợi,<br>
+                                Hải Dương
+                            </span>
+                        </div>
+
+                        <div class="info-row">
+                            <span class="info-label">
+                                Ngày đăng ký
+                            </span>
+
+                            <span class="info-value">
+                                20/05/2025 08:30
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="patient-actions">
+
+                        <button class="btn btn-update">
+                            <i class="fa-solid fa-pen"></i>
+                            Cập nhật
+                        </button>
+
+                        <button class="btn btn-delete">
+                            <i class="fa-regular fa-trash-can"></i>
+                            Xóa bệnh nhân
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= APPOINTMENTS ================= -->
+                <div class="card appointment-card">
+
+                    <div class="appointment-header">
+                        <h2>
+                            Lịch khám của bệnh nhân
+                        </h2>
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Ngày khám</th>
+                                <th>Giờ khám</th>
+                                <th>Bác sĩ</th>
+                                <th>Phòng khám</th>
+                                <th>Lý do khám</th>
+                                <th>Kết quả chẩn đoán</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            <tr>
+                                <td>1</td>
+
+                                <td>20/05/2025</td>
+
+                                <td>08:00</td>
+
+                                <td>
+                                    <span class="doctor-name">
+                                        Nguyễn Văn Hùng
+                                    </span>
+                                    <span class="sub-text">
+                                        (Nội tổng quát)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="room">P.101</span>
+                                    <span class="sub-text">
+                                        (Khám)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Đau đầu,<br>
+                                    chóng mặt
+                                </td>
+
+                                <td>
+                                    Rối loạn tiền đình<br>
+                                    nhẹ
+                                </td>
+
+                                <td>
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>2</td>
+
+                                <td>10/04/2025</td>
+
+                                <td>09:30</td>
+
+                                <td>
+                                    <span class="doctor-name">
+                                        Trần Thị Mai Lan
+                                    </span>
+                                    <span class="sub-text">
+                                        (Tim mạch)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="room">P.103</span>
+                                    <span class="sub-text">
+                                        (Khám)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Khó thở, hồi hộp
+                                </td>
+
+                                <td>
+                                    Rối loạn nhịp tim<br>
+                                    nhẹ
+                                </td>
+
+                                <td>
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>3</td>
+
+                                <td>15/02/2025</td>
+
+                                <td>10:00</td>
+
+                                <td>
+                                    <span class="doctor-name">
+                                        Lê Quốc Tuấn
+                                    </span>
+                                    <span class="sub-text">
+                                        (Nội tổng quát)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="room">P.102</span>
+                                    <span class="sub-text">
+                                        (Khám)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Sốt, ho
+                                </td>
+
+                                <td>
+                                    Cảm cúm
+                                </td>
+
+                                <td>
+                                    <span class="status completed">
+                                        Completed
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>4</td>
+
+                                <td>01/07/2025</td>
+
+                                <td>14:00</td>
+
+                                <td>
+                                    <span class="doctor-name">
+                                        Nguyễn Văn Hùng
+                                    </span>
+                                    <span class="sub-text">
+                                        (Nội tổng quát)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="room">P.101</span>
+                                    <span class="sub-text">
+                                        (Khám)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Đau bụng
+                                </td>
+
+                                <td>
+                                    -
+                                </td>
+
+                                <td>
+                                    <span class="status scheduled">
+                                        Scheduled
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>5</td>
+
+                                <td>20/06/2025</td>
+
+                                <td>08:30</td>
+
+                                <td>
+                                    <span class="doctor-name">
+                                        Trần Thị Mai Lan
+                                    </span>
+                                    <span class="sub-text">
+                                        (Tim mạch)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    <span class="room">P.103</span>
+                                    <span class="sub-text">
+                                        (Khám)
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Đau ngực
+                                </td>
+
+                                <td>
+                                    -
+                                </td>
+
+                                <td>
+                                    <span class="status cancelled">
+                                        Cancelled
+                                    </span>
+                                </td>
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- FOOTER -->
+                    <div class="table-footer">
+
+                        <div class="showing">
+                            Hiển thị 1 - 5 của 5 lịch khám
+                        </div>
+
+                        <div class="pagination">
+
+                            <button class="page-btn">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+
+                            <button class="page-btn active">
+                                1
+                            </button>
+
+                            <button class="page-btn">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
