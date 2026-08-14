@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sửa bệnh nhân - Hospital Management</title>
+
+    <link rel="stylesheet" href="./UpdatePatient.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="hospital-page">
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <h2>HOSPITAL</h2>
+                    <p>MANAGEMENT SYSTEM</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li><a href="#"><i class="fa-solid fa-house"></i>Dashboard</a></li>
+
+                <li>
+                    <a href="../../department/Departments/index.html">
+                        <i class="fa-solid fa-building"></i>
+                        Quản lý khoa
+                    </a>
+                </li>
+                <li><a href="../../doctor/doctor/doctor.html"><i class="fa-solid fa-user-doctor"></i>Quản lý bác sĩ</a>
+                </li>
+
+                <li class="active"><a href="#"><i class="fa-solid fa-users"></i>Quản lý bệnh nhân</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-hospital"></i>Quản lý phòng khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Quản lý lịch khám</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-capsules"></i>Quản lý thuốc</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-file-invoice"></i>Quản lý hóa đơn</a></li>
+
+                <li><a href="#"><i class="fa-solid fa-chart-column"></i>Thống kê</a></li>
+
+            </ul>
+
+            <div class="logout">
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="hospital-main">
+
+            <!-- HEADER -->
+            <header class="hospital-header">
+
+                <div class="hospital-header-left">
+
+                    <button class="hospital-menu-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+
+                    <h1>Quản lý bệnh nhân</h1>
+
+                </div>
+
+                <div class="hospital-header-right">
+
+                    <div class="hospital-notification">
+                        <i class="fa-regular fa-bell"></i>
+                        <span>3</span>
+                    </div>
+
+                    <div class="hospital-admin">
+
+                        <div class="hospital-admin-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <strong>Admin</strong>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <section class="hospital-content">
+
+                <!-- BREADCRUMB -->
+                <div class="hospital-breadcrumb">
+
+                    <span>Trang chủ</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <span>Quản lý bệnh nhân</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <span class="current">
+                        Sửa bệnh nhân
+                    </span>
+
+                </div>
+
+
+                <!-- PAGE TITLE -->
+                <div class="hospital-page-heading">
+
+                    <h2>Sửa bệnh nhân</h2>
+
+                    <button class="hospital-back-btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Quay lại danh sách
+                    </button>
+
+                </div>
+
+
+                <!-- FORM CARD -->
+                <div class="hospital-form-card">
+
+                    <div class="hospital-form-content">
+
+                        <h3>Thông tin bệnh nhân</h3>
+
+                        <form>
+
+                            <div class="hospital-form-grid">
+
+                                <!-- HỌ TÊN -->
+                                <div class="hospital-form-group">
+
+                                    <label>
+                                        Họ và tên
+                                        <span>*</span>
+                                    </label>
+
+                                    <input required class="fullName" type="text" placeholder="Nhập họ và tên">
+
+                                </div>
+
+
+                                <!-- NGÀY SINH -->
+                                <div class="hospital-form-group">
+
+                                    <label>
+                                        Ngày sinh
+                                        <span>*</span>
+                                    </label>
+
+                                    <div class="hospital-input-icon">
+
+                                        <input class="dateOfBirth" required type="date" placeholder="dd/mm/yyyy">
+
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- GIỚI TÍNH -->
+                                <div class="hospital-form-group">
+
+                                    <label>
+                                        Giới tính
+                                        <span>*</span>
+                                    </label>
+
+                                    <div class="hospital-select-wrapper">
+
+                                        <select required class="gender">
+                                            <option value="">
+                                                -- Chọn giới tính --
+                                            </option>
+
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                        </select>
+
+                                        <i class="fa-solid fa-chevron-down"></i>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- SỐ ĐIỆN THOẠI -->
+                                <div class="hospital-form-group">
+
+                                    <label>Số điện thoại</label>
+
+                                    <input required class="phoneNumber" type="text" placeholder="Nhập số điện thoại">
+
+                                </div>
+
+
+                                <!-- EMAIL -->
+                                <div class="hospital-form-group">
+
+                                    <label>Email</label>
+
+                                    <input required class="email" type="email" placeholder="Nhập email">
+
+                                </div>
+
+
+                                <!-- ĐỊA CHỈ -->
+                                <div class="hospital-form-group">
+
+                                    <label>Địa chỉ</label>
+
+                                    <textarea required class="address" placeholder="Nhập địa chỉ"></textarea>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- FORM FOOTER -->
+                    <div class="hospital-form-footer">
+
+                        <button type="button" class="hospital-btn hospital-btn-cancel">
+                            <i class="fa-solid fa-xmark"></i>
+                            Hủy
+                        </button>
+
+                        <button onclick="updatePatient()" type="submit" class="hospital-btn hospital-btn-save">
+                            <i class="fa-regular fa-floppy-disk"></i>
+                            Lưu bệnh nhân
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
+        integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./UpdatePatient.js"></script>
+</body>
+
+</html>

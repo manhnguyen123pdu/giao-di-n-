@@ -1,0 +1,908 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #17213c;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =====================================================
+   MAIN LAYOUT
+===================================================== */
+
+.hospital-page {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+        height: 100vh;
+    overflow: hidden;
+    width:260px;
+    background:#0f4ba8;
+    color:white;
+    display:flex;
+    flex-direction:column;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:30px 25px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    background:white;
+    color:#0f4ba8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.logo h2{
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo p{
+    font-size:12px;
+    opacity:.85;
+}
+
+.menu{
+
+    list-style: none;
+    padding:25px 15px;
+    flex:1;
+}
+
+.menu li{
+    margin-bottom:8px;
+}
+
+.menu li a{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:14px 18px;
+    border-radius:12px;
+    transition:.3s;
+    font-size:15px;
+}
+
+.menu li a:hover{
+    background:rgba(255,255,255,.15);
+}
+
+.menu li.active a{
+    background:white;
+    color:#0f4ba8;
+    font-weight:600;
+}
+
+.menu i{
+    width:20px;
+    text-align:center;
+}
+
+.logout{
+    padding:20px;
+    border-top:1px solid rgba(255,255,255,.15);
+}
+
+.logout a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.logout a:hover{
+    background:rgba(255,255,255,.15);
+}
+
+/* ================= MAIN ================= */
+
+.main {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    height: 75px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-left h2 {
+    font-size: 20px;
+}
+
+.sidebar-toggle {
+    border: none;
+    background: transparent;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.notification {
+    position: relative;
+    font-size: 20px;
+}
+
+.notification span {
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    background: #ef4444;
+    color: white;
+
+    font-size: 9px;
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 14px;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #eef2f7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.hospital-main {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.hospital-header {
+    height: 92px;
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 27px;
+
+    border-bottom: 1px solid #e8ebf1;
+}
+
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+}
+
+.sidebar-toggle {
+    border: 0;
+    background: transparent;
+
+    font-size: 24px;
+    color: #526078;
+
+    cursor: pointer;
+}
+
+.header-left h1 {
+    font-size: 25px;
+    color: #0c1735;
+}
+
+
+/* HEADER RIGHT */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.notification {
+    position: relative;
+    font-size: 25px;
+    color: #253653;
+}
+
+.notification span {
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #e63339;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+.admin-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 16px;
+}
+
+.admin-info > i {
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+
+.admin-avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #263858;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.hospital-content {
+    padding: 29px 28px;
+}
+
+
+/* BREADCRUMB */
+
+.hospital-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    color: #68728a;
+
+    font-size: 15px;
+
+    margin-bottom: 27px;
+}
+
+.hospital-breadcrumb i {
+    font-size: 10px;
+    color: #8d96a8;
+}
+
+.hospital-breadcrumb .current {
+    color: #1661c8;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.hospital-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 19px;
+}
+
+.hospital-title-row h2 {
+    font-size: 21px;
+    color: #111b37;
+}
+
+
+.btn-add {
+    height: 48px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #1261e8;
+    color: white;
+
+    font-size: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 6px rgba(18, 97, 232, .2);
+}
+
+.btn-add i {
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+.hospital-filter {
+    min-height: 108px;
+
+    background: white;
+
+    border: 1px solid #e6eaf0;
+
+    border-radius: 6px;
+
+    padding: 19px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.7fr
+        .95fr
+        .95fr
+        130px
+        130px;
+
+    gap: 20px;
+
+    align-items: end;
+
+    margin-bottom: 17px;
+
+    box-shadow: 0 1px 2px rgba(0,0,0,.02);
+}
+
+
+/* SEARCH */
+
+.search-input {
+    height: 46px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px;
+
+    margin-top: 21px;
+}
+
+.search-input i {
+    color: #67738b;
+    font-size: 18px;
+}
+
+.search-input input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    padding-left: 12px;
+
+    font-size: 14px;
+
+    color: #28334c;
+}
+
+.search-input input::placeholder {
+    color: #798297;
+}
+
+
+/* FILTER ITEM */
+
+.filter-item label {
+    display: block;
+
+    font-size: 14px;
+    color: #59647b;
+
+    margin-bottom: 7px;
+}
+
+
+.select-box {
+    height: 46px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 5px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: #30394f;
+
+    font-size: 14px;
+
+    background: #fff;
+}
+
+.select-box i {
+    font-size: 12px;
+    color: #384259;
+}
+
+
+/* BUTTON SEARCH */
+
+.btn-search {
+    height: 46px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #1261e8;
+    color: white;
+
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+}
+
+
+/* RESET */
+
+.btn-reset {
+    height: 46px;
+
+    border: 1px solid #d9dee7;
+    border-radius: 5px;
+
+    background: white;
+    color: #313b51;
+
+    font-size: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.hospital-table-wrapper {
+    height: 60vh;
+    overflow-y: scroll;
+    background: white;
+    border: 1px solid #e5e9ef;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.02);
+}
+
+
+.hospital-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+
+/* HEADER */
+
+.hospital-table thead {
+    background: #fafbfc;
+}
+
+.hospital-table th {
+    height: 58px;
+
+    border-bottom: 1px solid #e2e6ed;
+
+    color: #111a34;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-align: left;
+
+    padding: 0 25px;
+}
+
+
+/* WIDTH */
+
+.hospital-table th:nth-child(1) {
+    width: 7%;
+}
+
+.hospital-table th:nth-child(2) {
+    width: 14%;
+}
+
+.hospital-table th:nth-child(3) {
+    width: 17%;
+}
+
+.hospital-table th:nth-child(4) {
+    width: 23%;
+}
+
+.hospital-table th:nth-child(5) {
+    width: 16%;
+}
+
+.hospital-table th:nth-child(6) {
+    width: 23%;
+}
+
+
+/* BODY */
+
+.hospital-table td {
+    height: 72px;
+
+    border-bottom: 1px solid #edf0f4;
+
+    padding: 0 25px;
+
+    font-size: 14px;
+
+    color: #18223c;
+}
+
+.hospital-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.hospital-table tbody tr:hover {
+    background: #fafcff;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 80px;
+    height: 34px;
+
+    padding: 0 10px;
+
+    border-radius: 3px;
+
+    font-size: 13px;
+}
+
+
+.status.available {
+    color: #32844c;
+    background: #e1f4e6;
+}
+
+
+.status.occupied {
+    color: #c99821;
+    background: #fff3d9;
+}
+
+
+.status.maintenance {
+    color: #d94343;
+    background: #ffe4e4;
+}
+
+
+/* =====================================================
+   ACTION BUTTON
+===================================================== */
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.action-buttons button {
+    width: 42px;
+    height: 42px;
+
+    background: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btn-view {
+    color: #1460c9;
+    border: 1px solid #d7dfec;
+}
+
+.btn-edit {
+    color: #d89d16;
+    border: 1px solid #eee2c7;
+}
+
+.btn-delete {
+    color: #df3434;
+    border: 1px solid #efd7d7;
+}
+
+
+.action-buttons button:hover {
+    transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   PAGINATION
+===================================================== */
+
+.hospital-pagination {
+    min-height: 74px;
+
+    padding: 0 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.total {
+    font-size: 13px;
+    color: #737d90;
+}
+
+
+.pagination-buttons {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+
+.pagination-buttons button {
+    width: 40px;
+    height: 40px;
+
+    background: white;
+
+    border: 1px solid #e0e4eb;
+
+    border-radius: 5px;
+
+    color: #7b8495;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.pagination-buttons button:disabled {
+    color: #c4c9d1;
+    background: #fafafa;
+}
+
+
+.pagination-buttons .page-active {
+    color: white;
+    background: #1261e8;
+    border-color: #1261e8;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .hospital-sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .hospital-filter {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-input {
+        margin-top: 0;
+    }
+
+    .hospital-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .hospital-table {
+        min-width: 1000px;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .hospital-sidebar {
+        display: none;
+    }
+
+    .hospital-content {
+        padding: 20px 15px;
+    }
+
+    .hospital-header {
+        padding: 0 15px;
+    }
+
+    .header-left {
+        gap: 15px;
+    }
+
+    .header-left h1 {
+        font-size: 19px;
+    }
+
+    .admin-info strong {
+        display: none;
+    }
+
+    .hospital-title-row {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .hospital-title-row h2 {
+        font-size: 18px;
+    }
+
+    .btn-add {
+        font-size: 13px;
+        padding: 0 13px;
+    }
+
+    .hospital-filter {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .search-input {
+        margin-top: 0;
+    }
+
+    .hospital-pagination {
+        padding: 15px;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+}

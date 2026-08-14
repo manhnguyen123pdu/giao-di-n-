@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý phòng khám</title>
+
+    <link rel="stylesheet" href="./room.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="hospital-page">
+
+  <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                    <h2>HOSPITAL</h2>
+                    <p>MANAGEMENT SYSTEM</p>
+                </div>
+
+            </div>
+            <ul class="menu">
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-house"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../departments/index.html">
+                        <i class="fa-solid fa-building"></i>
+                        Quản lý khoa
+                    </a>
+                </li>
+
+                <li>
+                    <a href="../../doctor/doctor/doctor.html">
+                        <i class="fa-solid fa-user-doctor"></i>
+                        Quản lý bác sĩ
+                    </a>
+                </li>
+
+                <li >
+                    <a href="../../patient/patitents/patients.html">
+                        <i class="fa-solid fa-users"></i>
+                        Quản lý bệnh nhân
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="../../room/rooms/rooms.html">
+                        <i class="fa-solid fa-hospital"></i>
+                        Quản lý phòng khám
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        Quản lý lịch khám
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-capsules"></i>
+                        Quản lý thuốc
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        Quản lý hóa đơn
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chart-column"></i>
+                        Thống kê
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="logout">
+
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Đăng xuất
+                </a>
+
+            </div>
+
+        </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="hospital-main">
+
+        <!-- TOP HEADER -->
+        <header class="hospital-header">
+
+            <div class="header-left">
+
+                <button class="sidebar-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <h1>Quản lý phòng khám</h1>
+
+            </div>
+
+            <div class="header-right">
+
+                <div class="notification">
+                    <i class="fa-regular fa-bell"></i>
+                    <span>3</span>
+                </div>
+
+                <div class="admin-info">
+
+                    <div class="admin-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <strong>Admin</strong>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="hospital-content">
+
+            <!-- Breadcrumb -->
+            <div class="hospital-breadcrumb">
+
+                <span>Trang chủ</span>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <span>Quản lý phòng khám</span>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <span class="current">
+                    Danh sách phòng khám
+                </span>
+
+            </div>
+
+
+            <!-- TITLE -->
+            <div class="hospital-title-row">
+
+                <h2>Danh sách phòng khám</h2>
+
+                <button class="btn-add">
+                    <i class="fa-solid fa-plus"></i>
+                    Thêm phòng khám
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH BOX -->
+            <div class="hospital-filter">
+
+                <div class="search-input">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        placeholder="Tìm kiếm theo số phòng hoặc loại phòng"
+                    >
+
+                </div>
+
+
+                <div class="filter-item">
+
+                    <label>Khoa</label>
+
+                    <div class="select-box">
+                        <span>Tất cả khoa</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="filter-item">
+
+                    <label>Trạng thái</label>
+
+                    <div class="select-box">
+                        <span>Tất cả trạng thái</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+
+                </div>
+
+
+                <button class="btn-search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Tìm kiếm
+                </button>
+
+
+                <button class="btn-reset">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    Làm mới
+                </button>
+
+            </div>
+
+
+            <!-- TABLE -->
+            <div class="hospital-table-wrapper">
+
+                <table class="hospital-table">
+
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Số phòng</th>
+                        <th>Loại phòng</th>
+                        <th>Khoa</th>
+                        <th>Trạng thái</th>
+                        <th>Thao tác</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="rooms-all"></tbody>
+
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
+        integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="./room.js"></script>
+</body>
+</html>

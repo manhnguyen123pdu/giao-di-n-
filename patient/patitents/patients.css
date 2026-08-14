@@ -82,6 +82,7 @@ button {
 }
 
 .menu{
+        list-style: none;
     padding:25px 15px;
     flex:1;
 }

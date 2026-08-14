@@ -6,7 +6,15 @@ let fetchPatients = async ()=>{
         console.log(error)
     }
 }
-
+deletePatient = async(id) =>{
+    try {
+       await axios.delete(`http://localhost:8080/api/patients/${id}`);
+       alert("Xóa bệnh nhân thành công")
+       fetchPatients()
+    } catch (error) {
+        alert("Xóa thất bại")
+    }
+}
 let renderPatients = (p) =>{
 
     patientsHTML = "";
@@ -29,13 +37,18 @@ let renderPatients = (p) =>{
                             </td>
                             <td>
                                 <div class="actions">
-                                    <button class="view">
+                                <a href="../patientDetail/patientsDetail.html?id=${p[i].id}">
+                                <button  class="view">
                                         <i class="fa-regular fa-eye"></i>
                                     </button>
+                                   
+
+                                <a href="../UpdatePatient/UpdatePatient.html?id=${p[i].id}">
                                     <button class="edit">
                                         <i class="fa-solid fa-pencil"></i>
                                     </button>
-                                    <button class="delete">
+                                </a> 
+                                    <button onclick="deletePatient(${p[i].id})" class="delete">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>
 
@@ -44,7 +57,6 @@ let renderPatients = (p) =>{
                         </tr>
         `
     }
-        console.log( document.querySelector(".all-patients"))
     document.querySelector(".all-patients").innerHTML=patientsHTML;
 }
 
