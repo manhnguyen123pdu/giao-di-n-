@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý phòng khám</title>
-
-    <link rel="stylesheet" href="./room.css">
-
-    <!-- Font Awesome -->
+    <title>Quản lý lịch khám</title>
+    <link rel="stylesheet" href="./appointments.css">
+     <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
-<!-- demo -->
-<div class="hospital-page">
 
-  <!-- ================= SIDEBAR ================= -->
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
         <aside class="sidebar">
 
             <div class="logo">
@@ -61,14 +59,14 @@
                     </a>
                 </li>
 
-                <li class="active">
+                <li>
                     <a href="../../room/rooms/rooms.html">
                         <i class="fa-solid fa-hospital"></i>
                         Quản lý phòng khám
                     </a>
                 </li>
 
-                <li>
+                <li  class="active">
                     <a href="../../appointment/appointments/appointments.html">
                         <i class="fa-solid fa-calendar-days"></i>
                         Quản lý lịch khám
@@ -111,40 +109,31 @@
         </aside>
 
 
-    <!-- ================= MAIN ================= -->
-    <main class="hospital-main">
+    <!-- MAIN -->
+    <main class="main">
 
-        <!-- TOP HEADER -->
-        <header class="hospital-header">
+        <!-- HEADER -->
+        <header class="header">
 
             <div class="header-left">
-
-                <button class="sidebar-toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <h1>Quản lý phòng khám</h1>
-
+                <button class="hamburger">☰</button>
+                <h1>Quản lý lịch khám</h1>
             </div>
 
             <div class="header-right">
 
                 <div class="notification">
-                    <i class="fa-regular fa-bell"></i>
+                    ♧
                     <span>3</span>
                 </div>
 
-                <div class="admin-info">
-
-                    <div class="admin-avatar">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-
-                    <strong>Admin</strong>
-
-                    <i class="fa-solid fa-chevron-down"></i>
-
+                <div class="avatar">
+                    ●
                 </div>
+
+                <strong>Admin</strong>
+
+                <span class="dropdown">⌄</span>
 
             </div>
 
@@ -152,111 +141,127 @@
 
 
         <!-- CONTENT -->
-        <section class="hospital-content">
+        <section class="content">
 
-            <!-- Breadcrumb -->
-            <div class="hospital-breadcrumb">
-
+            <!-- BREADCRUMB -->
+            <div class="breadcrumb">
                 <span>Trang chủ</span>
-
-                <i class="fa-solid fa-chevron-right"></i>
-
-                <span>Quản lý phòng khám</span>
-
-                <i class="fa-solid fa-chevron-right"></i>
-
-                <span class="current">
-                    Danh sách phòng khám
-                </span>
-
+                <b>›</b>
+                <span>Quản lý lịch khám</span>
+                <b>›</b>
+                <strong>Danh sách lịch khám</strong>
             </div>
 
 
             <!-- TITLE -->
-            <div class="hospital-title-row">
+            <div class="page-title">
 
-                <h2>Danh sách phòng khám</h2>
+                <h2>Danh sách lịch khám</h2>
 
-                <button class="btn-add">
-                    <i class="fa-solid fa-plus"></i>
-                    Thêm phòng khám
+                <button class="add-btn">
+                    <span>＋</span>
+                    Thêm lịch khám
                 </button>
 
             </div>
 
 
-            <!-- SEARCH BOX -->
-            <div class="hospital-filter">
+            <!-- FILTER -->
+            <div class="filter-box">
 
                 <div class="search-input">
-
-                    <i class="fa-solid fa-magnifying-glass"></i>
-
                     <input
                         type="text"
-                        placeholder="Tìm kiếm theo số phòng hoặc loại phòng"
+                        placeholder="Tìm kiếm theo tên bệnh nhân, bác sĩ..."
                     >
-
+                    <span>⌕</span>
                 </div>
 
-
-                <div class="filter-item">
-
-                    <label>Khoa</label>
-
-                    <div class="select-box">
-                        <span>Tất cả khoa</span>
-                        <i class="fa-solid fa-chevron-down"></i>
+                <div class="filter-group">
+                    <label>Ngày khám</label>
+                    <div class="input-box">
+                        <span>dd/mm/yyyy</span>
+                        <span>▣</span>
                     </div>
-
                 </div>
 
+                <div class="filter-group">
+                    <label>Bác sĩ</label>
+                    <div class="select-box">
+                        <span>Tất cả bác sĩ</span>
+                        <span>⌄</span>
+                    </div>
+                </div>
 
-                <div class="filter-item">
-
+                <div class="filter-group">
                     <label>Trạng thái</label>
-
                     <div class="select-box">
                         <span>Tất cả trạng thái</span>
-                        <i class="fa-solid fa-chevron-down"></i>
+                        <span>⌄</span>
                     </div>
-
                 </div>
 
-
-                <button class="btn-search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    Tìm kiếm
+                <button class="search-btn">
+                    ⌕ &nbsp; Tìm kiếm
                 </button>
 
-
-                <button class="btn-reset">
-                    <i class="fa-solid fa-rotate-right"></i>
-                    Làm mới
+                <button class="refresh-btn">
+                    ⟳ &nbsp; Làm mới
                 </button>
 
             </div>
 
 
             <!-- TABLE -->
-            <div class="hospital-table-wrapper">
+            <div class="table-container">
 
-                <table class="hospital-table">
+                <table>
 
                     <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Số phòng</th>
-                        <th>Loại phòng</th>
-                        <th>Khoa</th>
+                        <th>Mã lịch khám</th>
+                        <th>Bệnh nhân</th>
+                        <th>Bác sĩ</th>
+                        <th>Phòng khám</th>
+                        <th>Ngày khám</th>
+                        <th>Giờ khám</th>
+                        <th>Lý do khám</th>
                         <th>Trạng thái</th>
                         <th>Thao tác</th>
                     </tr>
                     </thead>
 
-                    <tbody class="rooms-all"></tbody>
+                    <tbody class="appointment-all"></tbody>
 
                 </table>
+
+
+                <!-- TABLE FOOTER -->
+                <div class="table-footer">
+
+                    <div>
+                        Hiển thị 1 - 7 của 25 lịch khám
+                    </div>
+
+                    <div class="pagination">
+
+                        <button>‹</button>
+
+                        <button class="page-active">1</button>
+
+                        <button>2</button>
+
+                        <button>3</button>
+
+                        <button>4</button>
+
+                        <button>›</button>
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
@@ -264,9 +269,10 @@
     </main>
 
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.min.js"
         integrity="sha512-k0fcrB0wH2Vz5vizFLsfyul8yjbsMj+Wvrgjc1bRjNq6Vx2GzwFfWbr15F6B926dq8FXHTxjEr6F6hfI1sXsRg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="./room.js"></script>
+<script src="./appointments.js"></script>
 </body>
 </html>
